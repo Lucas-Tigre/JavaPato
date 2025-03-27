@@ -6,19 +6,21 @@
     <link rel="stylesheet" href="style.css">
     <title>Jogo de Adivinhação</title>
 </head>
-<body class="advinha">
-    <h1>Ache o pato</h1>
-    <p>Chute um número entre 1 e 20 e tente acertar o pato!</p>
-    <input type="number" id="palpite" placeholder="Seu palpite" min="1" max="20">
-    <button id="adivinharBtn">Adivinhar</button>
-    <h2 id="resultado"></h2>
-    <img id="imagemPato" src="patomort.png" alt="Você achou o pato">
-    <button id="reiniciarBtn" style="display: none;">Reiniciar Jogo</button>
+<body>
+    <div class="advinha">
+        <h1>Ache o pato 🦆</h1>
+        <p>Chute um número entre 1 e 20 e tente acertar o pato!</p>
+        <input type="number" id="palpite" placeholder="Seu palpite" min="1" max="20">
+        <button id="adivinharBtn">Adivinhar</button>
+        <h2 id="resultado"></h2>
+        <span id="emojiPato" style="font-size: 50px; display: none;">🦆</span>
+        <button id="reiniciarBtn" style="display: none;">Reiniciar Jogo</button>
+    </div>
 
     <script>
         let numeroAleatorio = Math.floor(Math.random() * 20) + 1;
         const resultadoElement = document.getElementById('resultado');
-        const imagemPato = document.getElementById('imagemPato');
+        const emojiPato = document.getElementById('emojiPato');
         const adivinharBtn = document.getElementById('adivinharBtn');
         const reiniciarBtn = document.getElementById('reiniciarBtn');
 
@@ -34,7 +36,7 @@
                 resultado = 'Muito alto! Tente novamente.';
             } else {
                 resultado = 'Você o achou! Você acertou o pato!';
-                imagemPato.style.display = 'block'; // Mostra a imagem
+                emojiPato.style.display = 'inline'; // Mostra o emoji
                 adivinharBtn.style.display = 'none'; // Esconde o botão de adivinhar
                 reiniciarBtn.style.display = 'block'; // Mostra o botão de reiniciar
             }
@@ -54,7 +56,7 @@
             numeroAleatorio = Math.floor(Math.random() * 20) + 1; // Gera um novo número
             document.getElementById('palpite').value = ''; // Limpa o campo de palpite
             resultadoElement.innerText = ''; // Limpa o resultado
-            imagemPato.style.display = 'none'; // Esconde a imagem
+            emojiPato.style.display = 'none'; // Esconde o emoji
             adivinharBtn.style.display = 'block'; // Mostra o botão de adivinhar novamente
             reiniciarBtn.style.display = 'none'; // Esconde o botão de reiniciar
         }

@@ -16,10 +16,13 @@ body {
     background-color: #ffffff; /* Cor de fundo da caixa */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra da caixa */
     text-align: center; /* Centraliza o texto */
+    width: 90%; /* Largura responsiva */
+    max-width: 400px; /* Largura máxima da caixa */
 }
+
 h1 {
     color: #00796b; /* Cor do título */
-    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
 }
 
 p {
@@ -45,6 +48,7 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s; /* Transições */
     font-size: 16px; /* Tamanho da fonte */
+    margin-top: 10px; /* Espaçamento acima do botão */
 }
 
 button:hover {
@@ -58,11 +62,10 @@ button:hover {
     color: #d32f2f; /* Cor do texto do resultado */
 }
 
-#imagemPato {
-    display: none; /* Esconde a imagem do pato */
-    max-width: 300px; /* Tamanho máximo da imagem */
-    margin-top: 20px; /* Espaçamento acima da imagem */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra da imagem */
+#emojiPato {
+    font-size: 50px; /* Tamanho do emoji */
+    display: none; /* Esconde o emoji inicialmente */
+    margin-top: 20px; /* Espaçamento acima do emoji */
 }
 
 #reiniciarBtn {
