@@ -7,16 +7,16 @@
     <title>Jogo de Adivinhação</title>
 </head>
 <body class="advinha">
-    <h1>ache o pato</h1>
-    <p>chute um número entre 1 e 100 e tente acertar o pato!</p>
+    <h1>Ache o pato</h1>
+    <p>chute um número entre 1 e 20 e tente acertar o pato!</p>
     <input type="number" id="palpite" placeholder="Seu palpite">
     <button onclick="adivinhar()">Adivinhar</button>
     <h2 id="resultado"></h2>
-
+    <img id="imagemPato" src="patomort.png" alt="Você achou o pato" ></img>
     <script>
-        const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        const numeroAleatorio = Math.floor(Math.random() * 20) + 1;
 
-        function adivinhar() {
+                function adivinhar() {
             const palpite = parseInt(document.getElementById('palpite').value);
             let resultado = '';
 
@@ -30,21 +30,14 @@
             }
             //mostra se vc acertou o pato
             else {
-                resultado = 'Você o achou! Você acertou o pato!';
+                resultado = 'Você o achou! Você acertou o pato!'; // Armazena a mensagem
+                document.getElementById('imagemPato').style.display = 'block'; // Mostra a imagem
             }
 
-             // Cria um elemento de parágrafo para a mensagem
-    const mensagem = document.createElement('p');
-    mensagem.textContent = resultado;
-
-    // Cria um elemento de imagem para o pato
-    const imagem = document.createElement('img'); // cria um elemento de imagem
-    imagem.src = 'caminho/para/sua/imagem.jpg'; // Substitua pelo caminho da sua imagem
-    imagem.alt = ''; // Texto alternativo para a imagem
-
-    // Adiciona a mensagem e a imagem ao corpo da página
-            document.getElementById('resultado').innerText = resultado;
+            // Exibe a mensagem no elemento HTML
+            document.getElementById('resultado').innerText = resultado; // Exibe a mensagem
         }
+
     </script>
 </body>
 </html>
