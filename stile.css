@@ -1,13 +1,75 @@
-.advinha{
-    border: 2px solid #000; /* Define a borda da caixa */
-padding: 10px;          /* Espaçamento interno */
-margin: 20px;          /* Espaçamento externo */
-border-radius: 5px;    /* Bordas arredondadas (opcional) */
-background-color: #f9f9f9; /* Cor de fundo (opcional) */
+body {
+    background-color: #e0f7fa; /* Cor de fundo suave */
+    font-family: 'Arial', sans-serif; /* Fonte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura total da tela */
+    margin: 0;
 }
-/* estilos.css */
+
+.advinha {
+    border: 2px solid #00796b; /* Borda da caixa */
+    padding: 30px; /* Espaçamento interno */
+    margin: 20px; /* Espaçamento externo */
+    border-radius: 15px; /* Bordas arredondadas */
+    background-color: #ffffff; /* Cor de fundo da caixa */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra da caixa */
+    text-align: center; /* Centraliza o texto */
+}
+h1 {
+    color: #00796b; /* Cor do título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
+
+p {
+    color: #555; /* Cor do texto */
+    margin-bottom: 20px; /* Espaçamento abaixo do parágrafo */
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 2px solid #00796b; /* Borda do campo de entrada */
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 80%; /* Largura do campo de entrada */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00796b; /* Cor verde */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Transições */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+button:hover {
+    background-color: #004d40; /* Verde escuro ao passar o mouse */
+    transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+}
+
+#resultado {
+    margin-top: 20px; /* Espaçamento acima do resultado */
+    font-size: 18px; /* Tamanho da fonte do resultado */
+    color: #d32f2f; /* Cor do texto do resultado */
+}
+
 #imagemPato {
-display: none; /* Esconde a imagem do pato */
-max-width: 300px; /* Define um tamanho máximo para a imagem */
-box-shadow: #000;
+    display: none; /* Esconde a imagem do pato */
+    max-width: 300px; /* Tamanho máximo da imagem */
+    margin-top: 20px; /* Espaçamento acima da imagem */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra da imagem */
+}
+
+#reiniciarBtn {
+    margin-top: 20px; /* Espaçamento acima do botão de reiniciar */
+    background-color: #f44336; /* Cor vermelha */
+}
+
+#reiniciarBtn:hover {
+    background-color: #c62828; /* Vermelho escuro ao passar o mouse */
 }

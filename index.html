@@ -3,41 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stile.css">
+    <link rel="stylesheet" href="style.css">
     <title>Jogo de Adivinhação</title>
 </head>
 <body class="advinha">
     <h1>Ache o pato</h1>
-    <p>chute um número entre 1 e 20 e tente acertar o pato!</p>
-    <input type="number" id="palpite" placeholder="Seu palpite">
-    <button onclick="adivinhar()">Adivinhar</button>
+    <p>Chute um número entre 1 e 20 e tente acertar o pato!</p>
+    <input type="number" id="palpite" placeholder="Seu palpite" min="1" max="20">
+    <button id="adivinharBtn">Adivinhar</button>
     <h2 id="resultado"></h2>
-    <img id="imagemPato" src="patomort.png" alt="Você achou o pato" ></img>
-    <script>
-        const numeroAleatorio = Math.floor(Math.random() * 20) + 1;
+    <img id="imagemPato" src="patomort.png" alt="Você achou o pato">
+    <button id="reiniciarBtn" style="display: none;">Reiniciar Jogo</button>
 
-                function adivinhar() {
+    <script>
+        let numeroAleatorio = Math.floor(Math.random() * 20) + 1;
+        const resultadoElement = document.getElementById('resultado');
+        const imagemPato = document.getElementById('imagemPato');
+        const adivinharBtn = document.getElementById('adivinharBtn');
+        const reiniciarBtn = document.getElementById('reiniciarBtn');
+
+        function adivinhar() {
             const palpite = parseInt(document.getElementById('palpite').value);
             let resultado = '';
 
-            //mostra se vc esta perto ou longe
-            if (palpite < numeroAleatorio) {
+            if (palpite < 1 || palpite > 20 || isNaN(palpite)) {
+                resultado = 'Por favor, insira um número entre 1 e 20.';
+            } else if (palpite < numeroAleatorio) {
                 resultado = 'Muito baixo! Tente novamente.';
-            }
-            //mostra se vc esta perto ou longe
-            else if (palpite > numeroAleatorio) {
+            } else if (palpite > numeroAleatorio) {
                 resultado = 'Muito alto! Tente novamente.';
-            }
-            //mostra se vc acertou o pato
-            else {
-                resultado = 'Você o achou! Você acertou o pato!'; // Armazena a mensagem
-                document.getElementById('imagemPato').style.display = 'block'; // Mostra a imagem
+            } else {
+                resultado = 'Você o achou! Você acertou o pato!';
+                imagemPato.style.display = 'block'; // Mostra a imagem
+                adivinharBtn.style.display = 'none'; // Esconde o botão de adivinhar
+                reiniciarBtn.style.display = 'block'; // Mostra o botão de reiniciar
             }
 
-            // Exibe a mensagem no elemento HTML
-            document.getElementById('resultado').innerText = resultado; // Exibe a mensagem
+            // Verifica se o palpite está quente ou frio
+            const diferenca = Math.abs(numeroAleatorio - palpite);
+            if (diferenca > 0 && diferenca <= 3) {
+                resultado += ' Você está quente!';
+            } else if (diferenca > 3) {
+                resultado += ' Você está frio!';
+            }
+
+            resultadoElement.innerText = resultado; // Exibe a mensagem
         }
 
+        function reiniciarJogo() {
+            numeroAleatorio = Math.floor(Math.random() * 20) + 1; // Gera um novo número
+            document.getElementById('palpite').value = ''; // Limpa o campo de palpite
+            resultadoElement.innerText = ''; // Limpa o resultado
+            imagemPato.style.display = 'none'; // Esconde a imagem
+            adivinharBtn.style.display = 'block'; // Mostra o botão de adivinhar novamente
+            reiniciarBtn.style.display = 'none'; // Esconde o botão de reiniciar
+        }
+
+        adivinharBtn.addEventListener('click', adivinhar); // Adiciona evento ao botão de adivinhar
+        reiniciarBtn.addEventListener('click', reiniciarJogo); // Adiciona evento ao botão de reiniciar
     </script>
 </body>
 </html>
