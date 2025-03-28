@@ -1,15 +1,53 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Cor de fundo suave */
     text-align: center;
     margin-top: 50px;
+}
+
+h1 {
+    color: #4CAF50; /* Cor verde para o título */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #333; /* Cor do texto */
 }
 
 input {
     padding: 10px;
     font-size: 16px;
+    border: 2px solid #4CAF50; /* Borda verde */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 20px;
+    width: 200px; /* Largura fixa */
+    transition: border-color 0.3s; /* Transição suave para a borda */
+}
+
+input:focus {
+    border-color: #008CBA; /* Cor da borda ao focar */
+    outline: none; /* Remove o contorno padrão */
 }
 
 button {
     padding: 10px 20px;
     font-size: 16px;
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+button:hover {
+    background-color: #45a049; /* Cor do botão ao passar o mouse */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #d9534f; /* Cor vermelha para mensagens de erro */
 }
