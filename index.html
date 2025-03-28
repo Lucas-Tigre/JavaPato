@@ -3,66 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stile.css">
-    <title>Jogo de Adivinhação</title>
+    <title>Ache o Pato</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="advinha">
-        <h1>Ache o pato 🦆</h1>
-        <p>Chute um número entre 1 e 20 e tente acertar o pato!</p>
-        <input type="number" id="palpite" placeholder="Seu palpite" min="1" max="20">
-        <button id="adivinharBtn">Adivinhar</button>
-        <h2 id="resultado"></h2>
-        <span id="emojiPato" style="font-size: 50px; display: none;">🦆</span>
-        <button id="reiniciarBtn" style="display: none;">Reiniciar Jogo</button>
-    </div>
+    <h1>Ache o Pato! 🦆</h1>
+    <p>Estou pensando em um número entre 1 e 20.</p>
+    <input type="number" id="guess" min="1" max="20" placeholder="Digite seu palpite">
+    <button onclick="checkGuess()">Adivinhar</button>
+    <p id="result"></p>
 
-    <script>
-        let numeroAleatorio = Math.floor(Math.random() * 20) + 1;
-        const resultadoElement = document.getElementById('resultado');
-        const emojiPato = document.getElementById('emojiPato');
-        const adivinharBtn = document.getElementById('adivinharBtn');
-        const reiniciarBtn = document.getElementById('reiniciarBtn');
-
-        function adivinhar() {
-            const palpite = parseInt(document.getElementById('palpite').value);
-            let resultado = '';
-
-            if (palpite < 1 || palpite > 20 || isNaN(palpite)) {
-                resultado = 'Por favor, insira um número entre 1 e 20.';
-            } else if (palpite < numeroAleatorio) {
-                resultado = 'Muito baixo! Tente novamente.';
-            } else if (palpite > numeroAleatorio) {
-                resultado = 'Muito alto! Tente novamente.';
-            } else {
-                resultado = 'Você o achou! Você acertou o pato!';
-                emojiPato.style.display = 'inline'; // Mostra o emoji
-                adivinharBtn.style.display = 'none'; // Esconde o botão de adivinhar
-                reiniciarBtn.style.display = 'block'; // Mostra o botão de reiniciar
-            }
-
-            // Verifica se o palpite está quente ou frio
-            const diferenca = Math.abs(numeroAleatorio - palpite);
-            if (diferenca > 0 && diferenca <= 3) {
-                resultado += ' Você está quente!';
-            } else if (diferenca > 3) {
-                resultado += ' Você está frio!';
-            }
-
-            resultadoElement.innerText = resultado; // Exibe a mensagem
-        }
-
-        function reiniciarJogo() {
-            numeroAleatorio = Math.floor(Math.random() * 20) + 1; // Gera um novo número
-            document.getElementById('palpite').value = ''; // Limpa o campo de palpite
-            resultadoElement.innerText = ''; // Limpa o resultado
-            emojiPato.style.display = 'none'; // Esconde o emoji
-            adivinharBtn.style.display = 'block'; // Mostra o botão de adivinhar novamente
-            reiniciarBtn.style.display = 'none'; // Esconde o botão de reiniciar
-        }
-
-        adivinharBtn.addEventListener('click', adivinhar); // Adiciona evento ao botão de adivinhar
-        reiniciarBtn.addEventListener('click', reiniciarJogo); // Adiciona evento ao botão de reiniciar
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
